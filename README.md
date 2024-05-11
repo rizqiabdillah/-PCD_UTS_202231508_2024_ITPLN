@@ -1,5 +1,5 @@
 
-# Project UTS Pengolahan Citra Digital
+# UTS Pengolahan Citra Digital
 
 ## Gambar
 
