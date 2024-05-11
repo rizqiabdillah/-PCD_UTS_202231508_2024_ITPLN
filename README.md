@@ -17,13 +17,15 @@ import cv2 import numpy as np import matplotlib.pyplot as plt
 1. cv2: OpenCV untuk pemrosesan citra.
 2. matplotlib.pyplot as plt: Matplotlib untuk membuat plot dan grafik.
 3. numpy as np: NumPy untuk komputasi numerik.
-Kemudian membaca data gambar dengan code dibawa ini : img = cv2.imread('gambar_nama.jpg') img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
-- Coding tersebut bertujuan untuk membaca file gambar "parking_lot.jpeg" dan menyimpannya dalam variabel img menggunakan OpenCV.
+Kemudian membaca data gambar dengan code dibawah ini : 
+img = cv2.imread('IMG_20240510_104833.jpg') img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
-- sedangkan cv2.cvtColor(img, cv2.COLOR_BGR2RGB): Ini adalah fungsi yang digunakan untuk mengubah ruang warna gambar. Dalam hal ini, gambar yang dibaca sebelumnya (img) dikonversi dari format BGR (Blue-Green-Red) ke format RGB (Red-Green-Blue). Karena OpenCV membaca gambar dalam format BGR secara default, tetapi dalam banyak kasus, kita lebih suka menggunakan format RGB.
+- Coding tersebut bertujuan untuk membaca file gambar "IMG_20240510_104833.jpg" dan menyimpannya dalam variabel img menggunakan OpenCV.
 
-- sedangkan cv2.cvtColor(img, cv2.COLOR_BGR2HSV): Ini adalah fungsi yang sama untuk mengubah ruang warna, tetapi kali ini mengonversi dari BGR ke HSV (Hue-Saturation-Value). HSV adalah model warna yang sangat berguna dalam pengolahan citra, terutama untuk deteksi warna, karena memisahkan informasi warna (hue), kejenuhan (saturation), dan nilai (value/brightness).
+- cv2.cvtColor(img, cv2.COLOR_BGR2RGB) : Ini adalah fungsi yang digunakan untuk mengubah ruang warna gambar. Dalam hal ini, gambar yang dibaca sebelumnya (img) dikonversi dari format BGR (Blue-Green-Red) ke format RGB (Red-Green-Blue). Karena OpenCV membaca gambar dalam format BGR secara default, tetapi dalam banyak kasus, kita lebih suka menggunakan format RGB.
+
+- cv2.cvtColor(img, cv2.COLOR_BGR2HSV) : fungsi yang sama untuk mengubah ruang warna, tetapi kali ini mengonversi dari BGR ke HSV (Hue-Saturation-Value). HSV adalah model warna yang sangat berguna dalam pengolahan citra, terutama untuk deteksi warna, karena memisahkan informasi warna (hue), kejenuhan (saturation), dan nilai (value/brightness).
 
 - Kemudian mendefinisikan warna dari semua warna
 
@@ -44,13 +46,13 @@ Kemudian membaca data gambar dengan code dibawa ini : img = cv2.imread('gambar_n
 ![App Screenshot](./img/kode_ori.png)
 
 ## Penjelasan
-plt.figure(figsize=(30, 8)): Ini membuat sebuah figure baru untuk menampung plot. figsize=(30, 8) menentukan ukuran figure dalam satuan inch. Ukuran tersebut adalah 30x8 inch.
+plt.figure(figsize=(30, 8)) : Membuat sebuah figure baru untuk menampung plot. figsize=(30, 8) menentukan ukuran figure dalam satuan inch. Ukuran tersebut adalah 30x8 inch.
 
-plt.subplot(1, 4, 1): Ini menentukan bahwa kita akan memiliki grid plot 1 baris dan 4 kolom, dan kita akan memplot pada subplot ke-1.
+plt.subplot(1, 4, 1) : Menentukan bahwa kita akan memiliki grid plot 1 baris dan 4 kolom, dan kita akan memplot pada subplot ke-1.
 
-plt.imshow(img_rgb): Ini menampilkan gambar img_rgb di subplot yang telah ditentukan sebelumnya.
+plt.imshow(img_rgb): Menampilkan gambar img_rgb di subplot yang telah ditentukan sebelumnya.
 
-plt.title('Original Image'): Ini memberikan judul pada plot, dalam hal ini "Original Image".
+plt.title('Original Image') : Memberikan judul pada plot, dalam hal ini "Original Image".
 
 plt.axis('off'): Ini menghilangkan sumbu x dan y pada plot.
 
@@ -65,11 +67,11 @@ plt.show(): Ini menampilkan plot yang telah dibuat.
 
 ## Penjelasan
 
-plt.figure(figsize=(30, 8)): Seperti sebelumnya, ini membuat sebuah figure baru dengan ukuran 30x8 inch.
+plt.figure(figsize=(30, 8)) : Membuat sebuah figure baru dengan ukuran 30x8 inch.
 
-plt.subplot(1, 4, 2): Ini menentukan bahwa kita akan memiliki grid plot 1 baris dan 4 kolom, dan kita akan memplot pada subplot ke-2.
+plt.subplot(1, 4, 2) : Menentukan bahwa kita akan memiliki grid plot 1 baris dan 4 kolom, dan kita akan memplot pada subplot ke-2.
 
-plt.imshow(mask_blue_inv, cmap='gray'): Ini menampilkan gambar mask_blue_inv di subplot yang telah ditentukan sebelumnya. Bedanya, cmap='gray' mengatur colormap menjadi grayscale, yang berarti gambar akan ditampilkan dalam skala keabuan.
+plt.imshow(mask_blue_inv, cmap='gray') : Menampilkan gambar mask_blue_inv di subplot yang telah ditentukan sebelumnya. Bedanya, cmap='gray' mengatur colormap menjadi grayscale, yang berarti gambar akan ditampilkan dalam skala keabuan.
 
 plt.title('Deteksi Warna Blue'): Memberikan judul pada plot, kali ini judulnya adalah "Deteksi Warna Blue".
 
@@ -86,17 +88,17 @@ plt.show(): Menampilkan plot yang telah dibuat.
 
 ## Penjelasan
 
-plt.figure(figsize=(30, 8)): Membuat sebuah figure baru dengan ukuran 30x8 inch, seperti sebelumnya.
+plt.figure(figsize=(30, 8)) : Membuat sebuah figure baru dengan ukuran 30x8 inch, seperti sebelumnya.
 
-plt.subplot(1, 4, 3): Menentukan subplot ke-3 dalam grid plot 1 baris dan 4 kolom.
+plt.subplot(1, 4, 3) : Menentukan subplot ke-3 dalam grid plot 1 baris dan 4 kolom.
 
 plt.imshow(mask_red_inv, cmap='gray'): Menampilkan gambar hasil deteksi warna merah, mask_red_inv, di subplot yang telah ditentukan sebelumnya. Dengan cmap='gray', gambar ditampilkan dalam skala keabuan (grayscale).
 
-plt.title('Deteksi Warna Red'): Memberikan judul pada plot, kali ini judulnya adalah "Deteksi Warna Red".
+plt.title('Deteksi Warna Red') : Memberikan judul pada plot "Deteksi Warna Red".
 
-plt.axis('off'): Menghilangkan sumbu x dan y pada plot, sama seperti sebelumnya.
+plt.axis('off') : Menghilangkan sumbu x dan y pada plot, sama seperti sebelumnya.
 
-plt.show(): Menampilkan plot yang telah dibuat.
+plt.show() : Menampilkan plot yang telah dibuat.
 
 ## Deteksi Warna Hijau / Green
 ![App Screenshot](./img/deteksi_warna_hijau.png)
@@ -107,11 +109,11 @@ plt.show(): Menampilkan plot yang telah dibuat.
 ![App Screenshot](./img/kode_deteksi_green.png)
 
 ## Penjelasan
-plt.figure(figsize=(30, 8)): Membuat sebuah figure baru dengan ukuran 30x8 inch.
+plt.figure(figsize=(30, 8)) : Membuat sebuah figure baru dengan ukuran 30x8 inch.
 
 plt.subplot(1, 4, 4): Menentukan subplot ke-4 dalam grid plot 1 baris dan 4 kolom.
 
-plt.imshow(mask_green_inv, cmap='gray'): Menampilkan gambar hasil deteksi warna hijau, mask_green_inv, di subplot yang telah ditentukan sebelumnya. Dengan cmap='gray', gambar ditampilkan dalam skala keabuan (grayscale).
+plt.imshow(mask_green_inv, cmap='gray') : Menampilkan gambar hasil deteksi warna hijau, mask_green_inv, di subplot yang telah ditentukan sebelumnya. Dengan cmap='gray', gambar ditampilkan dalam skala keabuan (grayscale).
 
 plt.title('Deteksi Warna Green'): Memberikan judul pada plot, kali ini judulnya adalah "Deteksi Warna Green".
 
@@ -144,17 +146,17 @@ plt.show(): Menampilkan plot yang telah dibuat.
 - Penjelasan
 hue_channel = hsv_img[:,:,0]: Ini mengambil saluran Hue (saluran pertama) dari gambar yang telah dikonversi ke ruang warna HSV.
 
-    _, blue_thresh = cv2.threshold(hue_channel, 100, 130, cv2.THRESH_BINARY): Ini menemukan ambang batas untuk warna biru dengan menggunakan thresholding pada saluran Hue. Nilai threshold yang digunakan di sini adalah 100 hingga 130.
+    _, blue_thresh = cv2.threshold(hue_channel, 100, 130, cv2.THRESH_BINARY) : Menemukan ambang batas untuk warna biru dengan menggunakan thresholding pada saluran Hue. Nilai threshold yang digunakan di sini adalah 100 hingga 130.
 
     _, red1_thresh = cv2.threshold(hue_channel, 0, 10, cv2.THRESH_BINARY): Ini menemukan ambang batas untuk warna merah (bagian 1) dengan menggunakan thresholding pada saluran Hue. Karena rentang Hue untuk merah terletak di dekat 0 dan 180 (karena sifat lingkaran dari model warna HSV), thresholding dilakukan pada nilai 0 hingga 10.
 
-    _, red2_thresh = cv2.threshold(hue_channel, 170, 180, cv2.THRESH_BINARY): Ini menemukan ambang batas untuk warna merah (bagian 2) dengan menggunakan thresholding pada saluran Hue. Karena sifat lingkaran dari model warna HSV, nilai threshold diletakkan di antara 170 hingga 180.
+    _, red2_thresh = cv2.threshold(hue_channel, 170, 180, cv2.THRESH_BINARY) : Menemukan ambang batas untuk warna merah (bagian 2) dengan menggunakan thresholding pada saluran Hue. Karena sifat lingkaran dari model warna HSV, nilai threshold diletakkan di antara 170 hingga 180.
 
-    _, green_thresh = cv2.threshold(hue_channel, 40, 80, cv2.THRESH_BINARY): Ini menemukan ambang batas untuk warna hijau dengan menggunakan thresholding pada saluran Hue. Rentang Hue untuk hijau biasanya berkisar antara 40 hingga 80.
+    _, green_thresh = cv2.threshold(hue_channel, 40, 80, cv2.THRESH_BINARY) : Menemukan ambang batas untuk warna hijau dengan menggunakan thresholding pada saluran Hue. Rentang Hue untuk hijau biasanya berkisar antara 40 hingga 80.
 
-    all_thresholds = np.unique(np.concatenate((blue_thresh, red1_thresh, red2_thresh, green_thresh))): Menggabungkan semua ambang batas yang telah ditemukan untuk setiap warna, dan kemudian menghapus duplikatnya menggunakan np.unique.
+    all_thresholds = np.unique(np.concatenate((blue_thresh, red1_thresh, red2_thresh, green_thresh))) : Menggabungkan semua ambang batas yang telah ditemukan untuk setiap warna, dan kemudian menghapus duplikatnya menggunakan np.unique.
 
-    sorted_thresholds = np.sort(all_thresholds): Mengurutkan ambang batas dari yang terkecil hingga yang terbesar.
+    sorted_thresholds = np.sort(all_thresholds) : Mengurutkan ambang batas dari yang terkecil hingga yang terbesar.
 
     print("Ambang Batas Terkecil hingga Terbesar:"): Mencetak pesan untuk memberi tahu bahwa hasil berikutnya adalah ambang batas yang telah diurutkan.
 
@@ -165,10 +167,23 @@ hue_channel = hsv_img[:,:,0]: Ini mengambil saluran Hue (saluran pertama) dari g
     ![App Screenshot](./img/hasil_histogram.png)
 
     ## Penjelasan
-    - Cara 1 menggunakan hist(): axs[0,0].imshow(img): Ini menampilkan gambar asli pada subplot (0,0). axs[0,1].hist(img.ravel(),256,[0,256]): Ini menghitung dan menampilkan histogram gambar menggunakan fungsi hist() dari matplotlib. img.ravel() digunakan untuk meratakan array gambar menjadi satu dimensi. Argumen lainnya adalah jumlah bin (256) dan rentang nilai (0-256).
+    ### cara 1
+- Membuat subplot 2x2 dengan ukuran total 15x5 inci
+    fig, axs = plt.subplots(2, 2, figsize=(15, 5))
 
-    - Cara 2 menggunakan calcHist(): hist = cv2.calcHist([img],[0],None,[256],[0,256]): Ini menghitung histogram gambar menggunakan fungsi calcHist() dari OpenCV. Argumen pertama adalah daftar gambar, argumen kedua adalah indeks saluran warna (0 untuk grayscale), argumen ketiga adalah mask (None untuk gambar lengkap), argumen keempat adalah jumlah bin, dan argumen kelima adalah rentang nilai. axs[1,0].imshow(img): Menampilkan gambar asli pada subplot (1,0). axs[1,1].plot(hist): Ini menampilkan plot histogram yang telah dihitung menggunakan calcHist().
+- Menampilkan gambar pada subplot di baris pertama dan kolom pertama dengan colormap 'gray'
+axs[0, 0].imshow(img, cmap='gray')
 
+- Membuat histogram dari gambar yang telah diratakan (flatten) dengan 256 bins dan rentang nilai [0, 256] axs[0, 1].hist(img.ravel(), 256, [0, 256])
+
+### cara 2
+- Menghitung histogram menggunakan cv2.calcHist() untuk channel ke-0 dari gambar 'img', dengan 256 bins dan rentang nilai [0, 256] : hist = cv2.calcHist([img], [0], None, [256], [0, 256])
+
+- Menampilkan gambar pada subplot di baris kedua dan kolom pertama dengan colormap 'gray' : axs[1, 0].imshow(img, cmap='gray')
+
+- Membuat plot dari histogram yang telah dihitung sebelumnya : axs[1, 1].plot(hist)
+
+- Menampilkan keseluruhan plot : plt.show()
 
 
 
